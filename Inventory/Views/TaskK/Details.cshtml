@@ -1,0 +1,12 @@
+﻿@model Project.MODELS.Entities.Task
+
+<h2>Task Details</h2>
+
+<div>
+    <h4>@Model.Name</h4>
+    <p>@Model.Description</p>
+</div>
+
+<a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+<a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary">Edit</a>
+<a href="@Url.Action("Delete", new { id = Model.Id })" class="btn btn-danger">Delete</a>

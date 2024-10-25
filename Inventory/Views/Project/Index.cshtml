@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Project.MODELS.Entities.Project>
+
+<h2>Projects</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.Name</td>
+                <td>@project.Description</td>
+                <td>@project.StartDate.ToShortDateString()</td>
+                <td>@project.EndDate.ToShortDateString()</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = project.Id })">Details</a> |
+                    <a href="@Url.Action("Edit", new { id = project.Id })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = project.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-primary">Create New Project</a>
